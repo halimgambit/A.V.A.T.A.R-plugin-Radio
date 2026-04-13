@@ -11,7 +11,7 @@
 			"nostalgie": "https://streaming.nrjaudio.fm/oug7girb92oc?origine=fluxradios",
 			"europe1": "http://europe1.lmn.fm/europe1.mp3",
 			"europe2": "http://europe2.lmn.fm/europe2.mp3",
-			"funradio": "http://icecast.funradio.fr/fun-1-44-128?listen=webCwsBCggNCQgLDQUGBAcGBg",
+			"fun radio": "http://icecast.funradio.fr/fun-1-44-128?listen=webCwsBCggNCQgLDQUGBAcGBg",
 			"radio classic": "http://radioclassique.ice.infomaniak.ch/radioclassique-high.mp3",
 			"nrj": "https://streaming.nrjaudio.fm/oumvmk8fnozc?origine=fluxradios",
 			"rfm": "http://rfm.lmn.fm/rfm.mp3",
@@ -28,6 +28,8 @@
 			"bfm radio": "https://audio.bfmtv.com/bfmradio_128.mp3",
 			"france bleu": "http://icecast.radiofrance.fr/fb1071-hifi.aac",
 			"rmc": "http://audio.bfmtv.com/rmcradio_128.mp3",
+			"nova": "http://audio.bfmtv.com/rmcradio_128.mp3",
+			"le mouv'": "https://nova-nouvo.ice.infomaniak.ch/nova-nouvo-256.aac",
 			"abc lounge": "https://streaming.brol.tech/rtfmlounge",
 			"costa del mar": "https://ice1.somafm.com/groovesalad-128-mp3",
 			"rules": {
@@ -56,6 +58,8 @@
 				"bfm radio": ["radio bfm","bfm radio","bfm"],
 				"france bleu": ["radio blue france","blue france"],
 				"rmc": ["radio rmc","rmc"],
+				"nova": ["radio nova","nova"],
+				"le mouv'": ["radio on","the motion"],
 				"abc lounge": ["radio blue abc lounge","abc lounge"],
 				"costa del mar": ["radio costa del mar","costa del mar"],
 				"stopRadio": ["(stop|farm|close) * radio","turn off * radio"]
