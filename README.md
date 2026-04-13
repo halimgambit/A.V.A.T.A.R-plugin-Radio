@@ -1,6 +1,6 @@
 # Radio
 
-# écouter les radios france avec Avatar
+# Ecouter les radios france avec Avatar
 
 - 30 radios/stations disponible sont dans le fichier propriété
 
