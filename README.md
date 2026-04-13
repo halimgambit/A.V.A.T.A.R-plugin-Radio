@@ -2,7 +2,7 @@
 
 écouter les radios france avec Avatar
 
-- 27 radios disponible sont dans le fichier propriété
+- 30 radios/stations disponible sont dans le fichier propriété
 
 - les régles: mets la radio nostalgie ou mets nostalgie
 
