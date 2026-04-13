@@ -4,7 +4,7 @@
 
 - 30 radios/stations disponible sont dans le fichier propriété
 
-- les régles: mets la radio nostalgie ou mets nostalgie
+- les régles: mets la radio nostalgie ou mets nostalgie ou directe nostalgie
 
 - les régles: arrete la radio ou éteins la radio
 
