@@ -1,8 +1,8 @@
 # Radio
 
-- Le plugin Radio permet de lancer et contrôler des stations de radio en streaming
-
 - This plugin is an add-on for the [A.V.A.T.A.R](https://avatar-home-automation.github.io/docs) framework.
+
+- - Le plugin Radio permet de lancer et contrôler des stations de radio en streaming
 
 - 🎧 📻 Commandes vocales (standard):
 
