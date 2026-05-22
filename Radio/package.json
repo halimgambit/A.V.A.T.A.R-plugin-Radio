@@ -1,0 +1,12 @@
+{
+    "name": "Radio",
+    "version": "1.0.0",
+    "type": "module",
+    "description": "Plugin Radio for A.V.A.T.A.R",
+    "repository": "https://github.com/YOUR-REPOSITORY",
+    "keywords": [
+        "Radio"
+    ],
+    "author": "YOUR-NAME",
+    "license": "mit"
+  }
