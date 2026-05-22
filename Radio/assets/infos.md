@@ -1,6 +1,6 @@
 # Radio
 
-![radio](../../core/plugins/Radio/assets/images/Radio.png)
+![Radio](../../core/plugins/Radio/assets/images/Radio.png)
 
 The Radio plugin allows you to play and control live streaming radio stations using voice commands.
 
