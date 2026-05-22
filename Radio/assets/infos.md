@@ -15,6 +15,3 @@ This plugin is fully multi-room compatible.
 
 ## Notes
 Streaming quality depends on external radio sources and network connection.
-
-
-<br><br><br>
