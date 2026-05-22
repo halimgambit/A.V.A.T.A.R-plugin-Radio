@@ -1,5 +1,20 @@
 # Radio
 
-Allows voice control of live radio streaming stations.
+![radio](../../core/plugins/Radio/assets/images/Radio.png)
 
-The Radio plugin allows you to launch and control streaming radio stations through A.V.A.T.A.R using simple voice commands.
+The Radio plugin allows you to play and control live streaming radio stations using voice commands.
+
+The Radio plugin allows you to launch and control streaming radio stations
+
+---
+
+## Multi-room
+This plugin is fully multi-room compatible.
+
+---
+
+## Notes
+Streaming quality depends on external radio sources and network connection.
+
+
+<br><br><br>
