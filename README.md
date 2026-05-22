@@ -4,7 +4,8 @@
 
 - This plugin is an add-on for the [A.V.A.T.A.R](https://avatar-home-automation.github.io/docs) framework.
 
-- 🎧 📻 Commandes vocales (standard)
+- 🎧 📻 Commandes vocales (standard):
+
 mets la radio,
 lance la radio,
 joue la radio,
