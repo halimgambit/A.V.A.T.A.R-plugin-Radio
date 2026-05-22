@@ -1,0 +1,12 @@
+{
+  "speech": {
+    "play": "Je mets $$",
+    "stop": "J'arrête la radio",
+    "autoStop": "Arrêt automatique de la radio",
+    "unknown": "Radio inconnue"
+  },
+  "plugin": {
+    "from": "depuis",
+    "to": "vers"
+  }
+}
