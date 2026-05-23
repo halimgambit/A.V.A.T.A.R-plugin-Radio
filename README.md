@@ -15,7 +15,7 @@ nostalgie,
 stop la radio,
 arrête la radio,
 
-- arret automatiqe de la radio aprés 4 minutes d'écoute
+- arret automatiqe de la radio aprés 45 minutes d'écoute
 
 # Multi-room
 The Radio plugin is fully multi-room.
