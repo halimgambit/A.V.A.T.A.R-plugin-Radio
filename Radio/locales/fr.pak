@@ -1,12 +1,9 @@
 {
   "speech": {
-    "play": "Je mets $$",
+    "play": "$$ depuis radio france",
     "stop": "J'arrête la radio",
     "autoStop": "Arrêt automatique de la radio",
-    "unknown": "Radio inconnue"
-  },
-  "plugin": {
-    "from": "depuis",
-    "to": "vers"
+    "askRadio": "Quelle radio voulez-vous écouter ?|Quelle radio souhaitez-vous lancer ?",
+    "unknownRadio": "Je n'ai pas compris le nom de la radio."
   }
 }
