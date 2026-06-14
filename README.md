@@ -9,7 +9,7 @@
 mets la radio[Quelle radio voulez-vous écouter ?], 
 lance la radio[Quelle radio souhaitez-vous lancer ?],
 joue la radio[Quelle radio souhaitez-vous lancer ?],
-mets radio France Info
+mets radio France Info,
 stop la radio,
 arrête la radio,
 
