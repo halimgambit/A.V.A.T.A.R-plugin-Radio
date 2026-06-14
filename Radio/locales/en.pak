@@ -1,12 +1,9 @@
 {
-  "speech": {
-    "play": "Playing $$",
-    "stop": "Stopping radio",
-    "autoStop": "Auto stop radio",
-    "unknown": "Unknown radio"
-  },
-  "plugin": {
-    "from": "from",
-    "to": "to"
+  speech: {
+    "play": "$$ from radio France",
+    "stop": "I’m stopping the radio",
+    "autoStop": "Automatic radio shutdown",
+    "askRadio": "Which radio do you want to listen to?| Which radio do you want to launch?",
+    "unknownRadio": "I didn’t understand the name of the radio."
   }
 }
