@@ -6,16 +6,18 @@
 
 - 🎧 📻 Commandes vocales (standard):
 
-mets la radio,
-lance la radio,
-joue la radio,
+mets la radio[Quelle radio voulez-vous écouter ?], 
+lance la radio[Quelle radio souhaitez-vous lancer ?],
+joue la radio[Quelle radio souhaitez-vous lancer ?],
 mets radio France Info
-mets radio NRJ,
-nostalgie,
 stop la radio,
 arrête la radio,
 
-- arret automatiqe de la radio aprés 45 minutes d'écoute
+✅ compatible multi-client
+✅ timeout indépendant par pièce
+✅ gestion des radios inconnues
+✅ arrêt automatique après 45 min
+✅ arrêt propre de ffplay
 
 # Multi-room
 The Radio plugin is fully multi-room.
