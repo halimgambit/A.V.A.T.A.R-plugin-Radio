@@ -51,17 +51,13 @@ const setAutoStop = (client, Locale) => {
     CLIENT_TIMEOUT.set(client, timeout);
 };
 
-const killFFPlay = (toClient) => {
+const killApp = (toClient, app) => {
     return new Promise(resolve => {
-        let timer;
-        const done = (result) => {
-            clearTimeout(timer);
-            resolve(result);
-        };
-        timer = setTimeout(() => done(false), 500); 
-        Avatar.runApp("taskkill", toClient, "/F /IM ffplay.exe", () => done(true));
+        Avatar.runApp("taskkill", toClient, `/F /T /IM ${app}`,
+            () => resolve()
+        );
     });
-}
+};
 
 const webRadios = async (data, client, toClient, Locale, callback) => {
     clearClientTimeout(toClient);
@@ -79,19 +75,21 @@ const webRadios = async (data, client, toClient, Locale, callback) => {
 
     const urlRadio = radios[foundRadioKey];
 
-    await killFFPlay(toClient);
-    Avatar.runApp("taskkill", toClient, "/F /T /IM brave.exe");
+    await killApp(toClient, "vlc.exe");
+    await killApp(toClient, "ffplay.exe");
+    await killApp(toClient, "brave.exe");
 
     info(foundRadioKey);
     info(urlRadio);
 
     Avatar.stop(toClient, () => {
-        Avatar.speak(Locale.get("speech.play", foundRadioKey), client, () => {
-            callback(); 
-        });
-        Avatar.play(urlRadio, toClient, "url", "after");
-        setAutoStop(toClient, Locale);
-    });
+    Avatar.speak(Locale.get("speech.play", foundRadioKey), client, () => {
+            Avatar.play(urlRadio, toClient, "url", "after");
+            setAutoStop(toClient, Locale);
+            callback();
+        }
+    );
+});
 }
 
 const askUnknownRadio = (data, client, toClient, Locale, callback) => {
@@ -105,7 +103,6 @@ const askUnknownRadio = (data, client, toClient, Locale, callback) => {
         "terminer": "cancel"
     }, 15, async (answer, end) => {
 
-        // === LE FALLBACK CORRECT POUR LE TIMEOUT ===
       if (!answer || answer.trim() === "" || answer === "timeout") {
         end(client);
         Avatar.Speech.end(client);
@@ -136,8 +133,7 @@ const askUnknownRadio = (data, client, toClient, Locale, callback) => {
     });
 };
 
-const stopRadio = async (client, toClient, Locale, callback) => {
-    await killFFPlay(toClient);
+const stopRadio = (client, toClient, Locale, callback) => {
     clearClientTimeout(toClient);
     Avatar.stop(toClient, () => {
         Avatar.speak(Locale.get("speech.stop"), client, () => {
