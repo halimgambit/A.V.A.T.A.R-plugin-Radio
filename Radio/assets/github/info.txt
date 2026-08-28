@@ -4,8 +4,8 @@ The Radio plugin allows you to play and control live streaming radio stations us
 
 The Radio plugin allows you to launch and control streaming radio stations
 
-## Multi-room
+Multi-room
 This plugin is fully multi-room compatible.
 
-## Notes
+Notes
 Streaming quality depends on external radio sources and network connection.
