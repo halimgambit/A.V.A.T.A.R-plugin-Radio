@@ -15,7 +15,7 @@ arrête la radio,
 
 ✅ compatible multi-client
 ✅ timeout indépendant par pièce
-✅ arrêt automatique après 45 min aprés écoute
+✅ arrêt automatique de la radio après 45 min aprés écoute
 ✅ arrêt propre de ffplay, vlc, brave
 
 # Multi-room
