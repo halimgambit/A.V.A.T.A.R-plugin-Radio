@@ -53,13 +53,13 @@ const setAutoStop = (client, Locale) => {
 
 const killApp = (toClient, app) => {
     return new Promise(resolve => {
-        Avatar.runApp("taskkill", toClient, `/F /T /IM ${app}`,
-            () => resolve()
-        );
+        Avatar.runApp("taskkill", toClient, `/F /T /IM ${app}`, () => resolve());
+        setTimeout(resolve, 500);
     });
 };
 
 const webRadios = async (data, client, toClient, Locale, callback) => {
+
     clearClientTimeout(toClient);
 
     const sentence = (data.rawSentence || data.action?.sentence || "").toLowerCase();
@@ -84,17 +84,20 @@ const webRadios = async (data, client, toClient, Locale, callback) => {
 
     Avatar.stop(toClient, () => {
     Avatar.speak(Locale.get("speech.play", foundRadioKey), client, () => {
+        info("Démarrage audio radio :", foundRadioKey);
             Avatar.play(urlRadio, toClient, "url", "after");
+            info("Avatar.play envoyé");
             setAutoStop(toClient, Locale);
             callback();
         }
     );
 });
+
 }
+
 
 const askUnknownRadio = (data, client, toClient, Locale, callback) => {
     info(Locale.get("speech.askRadio"));
-
     Avatar.askme(Locale.get("speech.askRadio"), client, {
         "*": "generic",
         "annule": "cancel",
@@ -102,36 +105,43 @@ const askUnknownRadio = (data, client, toClient, Locale, callback) => {
         "terminé": "cancel",
         "terminer": "cancel"
     }, 15, async (answer, end) => {
-
-      if (!answer || answer.trim() === "" || answer === "timeout") {
         end(client);
-        Avatar.Speech.end(client);
-        info("Radio : Aucun message reçu (Timeout). Libération forcée du client.");
-        return callback();
-      }
 
-      end(client);
+        info("Radio askme réponse :", answer);
 
-        if (answer === "cancel") {
-            info(Locale.get("speech.cancel"));
-            return Avatar.speak(Locale.get("speech.cancel"), client, () => {
-                callback();
-            });
+        switch (answer) {
+            case "cancel":
+                Avatar.speak(Locale.get("speech.cancel"), client, () => {
+                    Avatar.Speech.end(client);
+                    callback();
+                });
+                break;
+
+            case "generic":
+            default:
+                if (!answer || answer === "timeout") {
+                    info("Radio : Aucun message reçu (Timeout). Libération forcée du client.");
+                    Avatar.Speech.end(client);
+                    return callback();
+                }
+
+                const newRadioName = answer.split(':')[1]?.trim();
+
+                if (!newRadioName) {
+                    return Avatar.speak(Locale.get("speech.unknownRadio"), client, () => {
+                        callback();
+                    });
+                }
+
+                data.rawSentence = newRadioName;
+                data.sentence = newRadioName;
+
+                webRadios(data, client, toClient, Locale, callback);
+                break;
         }
-
-        const newRadioName = answer.split(":")[1]?.trim();
-        if (!newRadioName) {
-            return Avatar.speak(Locale.get("speech.unknownRadio"), client, () => {
-                callback();
-            });
-        }
-
-        data.rawSentence = newRadioName;
-        data.sentence = newRadioName;
-
-        webRadios(data, client, toClient, Locale, callback);
     });
 };
+
 
 const stopRadio = (client, toClient, Locale, callback) => {
     clearClientTimeout(toClient);
