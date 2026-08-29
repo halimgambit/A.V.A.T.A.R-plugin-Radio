@@ -109,6 +109,15 @@ const askUnknownRadio = (data, client, toClient, Locale, callback) => {
 
         info("Radio askme réponse :", answer);
 
+        if (answer && answer.split(':')[1]) {
+            const newRadioName = answer.split(':')[1].trim();
+            if (newRadioName) {
+                data.rawSentence = newRadioName;
+                data.sentence = newRadioName;
+                return webRadios(data, client, toClient, Locale, callback);
+            }
+        }
+
         switch (answer) {
             case "cancel":
                 Avatar.speak(Locale.get("speech.cancel"), client, () => {
@@ -117,7 +126,6 @@ const askUnknownRadio = (data, client, toClient, Locale, callback) => {
                 });
                 break;
 
-            case "generic":
             default:
                 if (!answer || answer === "timeout") {
                     info("Radio : Aucun message reçu (Timeout). Libération forcée du client.");
@@ -125,18 +133,10 @@ const askUnknownRadio = (data, client, toClient, Locale, callback) => {
                     return callback();
                 }
 
-                const newRadioName = answer.split(':')[1]?.trim();
-
-                if (!newRadioName) {
-                    return Avatar.speak(Locale.get("speech.unknownRadio"), client, () => {
-                        callback();
-                    });
-                }
-
-                data.rawSentence = newRadioName;
-                data.sentence = newRadioName;
-
-                webRadios(data, client, toClient, Locale, callback);
+                Avatar.speak(Locale.get("speech.unknownRadio"), client, () => {
+                    Avatar.Speech.end(client);
+                    callback();
+                });
                 break;
         }
     });
